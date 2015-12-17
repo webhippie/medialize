@@ -1,4 +1,4 @@
-.PHONY: clean deps test build
+.PHONY: clean deps test install build
 
 # export GOOS ?= linux
 # export GOARCH ?= amd64
@@ -14,6 +14,9 @@ deps:
 
 test:
 	go test -cover ./...
+
+install:
+	go install -ldflags '-s -w $(LDFLAGS)'
 
 build:
 	go build -ldflags '-s -w $(LDFLAGS)'
