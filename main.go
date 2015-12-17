@@ -93,7 +93,11 @@ func main() {
 					}
 
 					for i := 0; i < 100000; i++ {
-						name := photo.NextName(file, dest, i)
+						name, _ := photo.NextName(file, dest, i)
+
+						//if err != nil {
+						//	logrus.Error(err)
+						//}
 
 						if _, err := os.Stat(name); err == nil {
 							continue

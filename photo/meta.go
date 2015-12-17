@@ -2,6 +2,7 @@ package photo
 
 import (
 	"errors"
+	"fmt"
 	"github.com/rwcarlsen/goexif/exif"
 	"os"
 	"time"
@@ -11,19 +12,22 @@ func CreationTime(file string) (time.Time, error) {
 	handle, err := os.Open(file)
 
 	if err != nil {
-		return time.Time{}, errors.New("Failed to open file")
+		return time.Time{}, errors.New(
+			fmt.Sprintf("Failed to open file: %s", err))
 	}
 
 	info, err := exif.Decode(handle)
 
 	if err != nil {
-		return time.Time{}, errors.New("Failed to parse file")
+		return time.Time{}, errors.New(
+			fmt.Sprintf("Failed to parse file: %s", err))
 	}
 
 	taken, err := info.DateTime()
 
 	if err != nil {
-		return time.Time{}, errors.New("Failed to get time")
+		return time.Time{}, errors.New(
+			fmt.Sprintf("Failed to get time: %s", err))
 	}
 
 	return taken, nil

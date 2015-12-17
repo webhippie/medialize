@@ -6,7 +6,7 @@ import (
 	"github.com/webhippie/medialize/util"
 )
 
-func NextName(file, dest string, counter int) string {
+func NextName(file, dest string, counter int) (string, error) {
 	taken, err := CreationTime(file)
 
 	if err != nil {
@@ -15,10 +15,11 @@ func NextName(file, dest string, counter int) string {
 		e := util.CleanExt(file)
 
 		return fmt.Sprintf(
-			"%s/0000/%s%s",
-			d,
-			s,
-			e)
+				"%s/0000/%s%s",
+				d,
+				s,
+				e),
+			err
 	} else {
 		d := util.TrimSuffix(dest, "/")
 		f := fmtdate.Format("YYYY/MM", taken)
@@ -27,11 +28,12 @@ func NextName(file, dest string, counter int) string {
 		e := util.CleanExt(file)
 
 		return fmt.Sprintf(
-			"%s/%s/%s-%s%s",
-			d,
-			f,
-			t,
-			s,
-			e)
+				"%s/%s/%s-%s%s",
+				d,
+				f,
+				t,
+				s,
+				e),
+			nil
 	}
 }
