@@ -17,3 +17,16 @@ publish:
       - dist/*
     when:
       event: tag
+
+notify:
+  email:
+    from: drone@webhippie.de
+    host: $$EMAIL_HOST
+    username: $$EMAIL_USERNAME
+    password: $$EMAIL_PASSWORD
+    recipients:
+      - thomas@webhippie.de
+    when:
+      success: false
+      failure: true
+      change: true
