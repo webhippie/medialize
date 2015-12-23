@@ -9,13 +9,13 @@ import (
 )
 
 var (
-	buildDate string
+	version string
 )
 
 func main() {
 	app := cli.NewApp()
 	app.Name = "medialize"
-	app.Version = buildDate
+	app.Version = version
 	app.Author = "Thomas Boerger <thomas@webhippie.de>"
 	app.Usage = "Sort and filter your media files"
 

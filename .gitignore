@@ -23,4 +23,7 @@ _testmain.go
 *.test
 *.prof
 
-medialize
+/.drone.sec.yml
+/bin
+/dist
+/medialize

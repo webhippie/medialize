@@ -1,0 +1,19 @@
+clone:
+  path: github.com/webhippie/medialize
+
+build:
+  image: golang:1.5
+
+  commands:
+    - make deps
+    - make build
+    - make test
+    - make release
+
+publish:
+  github_release:
+    api_key: $$GITHUB_APIKEY
+    files:
+      - dist/*
+    when:
+      event: tag
