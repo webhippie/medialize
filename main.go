@@ -13,11 +13,21 @@ var (
 )
 
 func main() {
+	cli.HelpFlag = cli.BoolFlag{
+		Name:  "help, h",
+		Usage: "Show the help, so what you see now",
+	}
+
+	cli.VersionFlag = cli.BoolFlag{
+		Name:  "version, v",
+		Usage: "Print the current version of that tool",
+	}
+
 	app := cli.NewApp()
 	app.Name = "medialize"
 	app.Version = version
 	app.Author = "Thomas Boerger <thomas@webhippie.de>"
-	app.Usage = "Sort and filter your media files"
+	app.Usage = "Sort and filter your media filesbased on meta infos"
 
 	app.Before = func(c *cli.Context) error {
 		logrus.SetOutput(os.Stdout)
