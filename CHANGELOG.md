@@ -6,6 +6,7 @@
   * Added vendored dependencies based on govend
   * Proper ordering of go imports
   * Use sha265 checksums instead of counter for files without exif data
+  * Multiple Makefile improvements
 
 ## [0.0.1](https://github.com/webhippie/medialize/releases/tag/v0.0.1) - 2015-12-23
 
