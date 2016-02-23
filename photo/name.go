@@ -2,6 +2,7 @@ package photo
 
 import (
 	"fmt"
+
 	"github.com/metakeule/fmtdate"
 	"github.com/webhippie/medialize/util"
 )
@@ -10,8 +11,13 @@ func NextName(file, dest string, counter int) (string, error) {
 	taken, err := CreationTime(file)
 
 	if err != nil {
+		s, err := util.Checksum(file)
+
+		if err != nil {
+			return "", fmt.Errorf("Failed to get checksum")
+		}
+
 		d := util.TrimSuffix(dest, "/")
-		s := fmt.Sprintf("%05d", counter)
 		e := util.CleanExt(file)
 
 		return fmt.Sprintf(
