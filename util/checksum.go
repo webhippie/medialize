@@ -1,26 +1,26 @@
 package util
 
 import (
-  "crypto/sha256"
-  "io"
-  "os"
+	"crypto/sha256"
+	"encoding/hex"
+	"io"
+	"os"
 )
 
-func Checksum(path string) ([]byte, error) {
-  var result []byte
-  file, err := os.Open(path)
+func Checksum(path string) (string, error) {
+	file, err := os.Open(path)
 
-  if err != nil {
-    return result, err
-  }
+	if err != nil {
+		return "", err
+	}
 
-  defer file.Close()
+	defer file.Close()
 
-  hash := sha256.New()
+	hash := sha256.New()
 
-  if _, err := io.Copy(hash, file); err != nil {
-    return result, err
-  }
+	if _, err := io.Copy(hash, file); err != nil {
+		return "", err
+	}
 
-  return hash.Sum(result), nil
+	return hex.EncodeToString(hash.Sum(nil)), nil
 }
