@@ -3,9 +3,10 @@ package photo
 import (
 	"errors"
 	"fmt"
-	"github.com/rwcarlsen/goexif/exif"
 	"os"
 	"time"
+
+	"github.com/rwcarlsen/goexif/exif"
 )
 
 func CreationTime(file string) (time.Time, error) {

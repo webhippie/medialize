@@ -1,11 +1,12 @@
 package main
 
 import (
+	"os"
+	"path/filepath"
+
 	"github.com/Sirupsen/logrus"
 	"github.com/codegangsta/cli"
 	"github.com/webhippie/medialize/photo"
-	"os"
-	"path/filepath"
 )
 
 var (
