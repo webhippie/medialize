@@ -7,6 +7,8 @@ import (
 
 func ValidExtension(file string) bool {
 	valid := []string{
+		".png",
+		".gif",
 		".jpg",
 		".jpeg",
 	}
