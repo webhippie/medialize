@@ -7,6 +7,7 @@ import (
 	"os"
 )
 
+// Checksum generates a SHA256 checksum from file content.
 func Checksum(path string) (string, error) {
 	file, err := os.Open(path)
 

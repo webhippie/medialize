@@ -5,6 +5,7 @@ import (
 	"path/filepath"
 )
 
+// FindFiles walkes through the file tree and fetches files.
 func FindFiles(searchPath string) ([]string, error) {
 	fileList := []string{}
 

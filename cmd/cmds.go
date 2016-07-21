@@ -9,6 +9,7 @@ import (
 	"github.com/webhippie/medialize/photo"
 )
 
+// Commands defines all available sub-commands for this tool.
 func Commands() []cli.Command {
 	return []cli.Command{
 		{
@@ -45,12 +46,12 @@ func Commands() []cli.Command {
 							)
 
 							return
-						} else {
-							logrus.Debugf(
-								"Created %s folder",
-								dest,
-							)
 						}
+
+						logrus.Debugf(
+							"Created %s folder",
+							dest,
+						)
 					}
 				} else {
 					dest, _ = os.Getwd()
@@ -62,9 +63,9 @@ func Commands() []cli.Command {
 				if err != nil {
 					logrus.Error("Failed to scan for files")
 					return
-				} else {
-					logrus.Infof("Finished scan for %d files", len(fileList))
 				}
+
+				logrus.Infof("Finished scan for %d files", len(fileList))
 
 				for _, file := range fileList {
 					if photo.ValidExtension(file) {

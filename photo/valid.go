@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// ValidExtension detects valid photo file extensions.
 func ValidExtension(file string) bool {
 	valid := []string{
 		".png",

@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// CleanExt tries to return a cleaned file extension.
 func CleanExt(file string) string {
 	result := strings.ToLower(
 		filepath.Ext(file))

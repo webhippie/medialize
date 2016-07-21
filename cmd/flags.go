@@ -5,6 +5,7 @@ import (
 	"github.com/webhippie/medialize/config"
 )
 
+// Flags defines all available flags for this command.
 func Flags() []cli.Flag {
 	return []cli.Flag{
 		cli.BoolTFlag{

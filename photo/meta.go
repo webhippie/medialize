@@ -1,7 +1,6 @@
 package photo
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"time"
@@ -9,26 +8,24 @@ import (
 	"github.com/rwcarlsen/goexif/exif"
 )
 
+// CreationTime tries to fetch the creation date from EXIF.
 func CreationTime(file string) (time.Time, error) {
 	handle, err := os.Open(file)
 
 	if err != nil {
-		return time.Time{}, errors.New(
-			fmt.Sprintf("Failed to open file: %s", err))
+		return time.Time{}, fmt.Errorf("Failed to open file: %s", err)
 	}
 
 	info, err := exif.Decode(handle)
 
 	if err != nil {
-		return time.Time{}, errors.New(
-			fmt.Sprintf("Failed to parse file: %s", err))
+		return time.Time{}, fmt.Errorf("Failed to parse file: %s", err)
 	}
 
 	taken, err := info.DateTime()
 
 	if err != nil {
-		return time.Time{}, errors.New(
-			fmt.Sprintf("Failed to get time: %s", err))
+		return time.Time{}, fmt.Errorf("Failed to get time: %s", err)
 	}
 
 	return taken, nil

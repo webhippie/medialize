@@ -7,6 +7,7 @@ import (
 	"github.com/codegangsta/cli"
 )
 
+// Before gets called before any action on every execution.
 func Before() BeforeFunc {
 	return func(c *cli.Context) error {
 		logrus.SetOutput(os.Stdout)
