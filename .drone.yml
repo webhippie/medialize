@@ -27,11 +27,39 @@ pipeline:
       - CGO_ENABLED=0
       - TAGS=
       - GOPATH=/srv/app
+      - PATH=/srv/app/bin:$PATH
     commands:
       - make publish
     when:
       event: [ push, tag ]
       branch: [ master, refs/tags/* ]
+
+  docker:
+    image: plugins/docker
+    secrets: [ docker_username, docker_password ]
+    repo: tboerger/medialize
+    tags: [ '${DRONE_TAG##v}' ]
+    when:
+      event: [ tag ]
+      branch: [ refs/tags/* ]
+
+  docker:
+    image: plugins/docker
+    secrets: [ docker_username, docker_password ]
+    repo: tboerger/medialize
+    tags: [ '${DRONE_BRANCH##release/v}' ]
+    when:
+      event: [ push ]
+      branch: [ release/* ]
+
+  docker:
+    image: plugins/docker
+    secrets: [ docker_username, docker_password ]
+    repo: tboerger/medialize
+    tags: [ 'latest' ]
+    when:
+      event: [ push ]
+      branch: [ master ]
 
   archive:
     image: plugins/s3
