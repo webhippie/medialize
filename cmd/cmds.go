@@ -1,51 +1,48 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/codegangsta/cli"
 	"github.com/webhippie/medialize/photo"
+	"gopkg.in/urfave/cli.v2"
 )
 
 // Commands defines all available sub-commands for this tool.
-func Commands() []cli.Command {
-	return []cli.Command{
+func Commands() []*cli.Command {
+	return []*cli.Command{
 		{
 			Name:      "photos",
 			Usage:     "Sort photos",
 			ArgsUsage: "<source> <destination>",
 			Flags: []cli.Flag{
-				cli.BoolFlag{
+				&cli.BoolFlag{
 					Name:  "rename",
 					Usage: "Rename the source insted of copying",
 				},
 			},
-			Action: func(c *cli.Context) {
+			Action: func(c *cli.Context) error {
 				source := c.Args().Get(0)
 
 				if len(source) == 0 {
-					logrus.Error("Please provide a source folder")
-					return
+					return fmt.Errorf("Please provide a source folder")
 				}
 
 				dest := c.Args().Get(1)
 
 				if len(source) == 0 {
-					logrus.Error("Please provide a dest folder")
-					return
+					return fmt.Errorf("Please provide a dest folder")
 				}
 
 				if len(dest) > 0 {
 					if _, err := os.Stat(dest); os.IsNotExist(err) {
 						if err := os.MkdirAll(dest, 0755); err != nil {
-							logrus.Errorf(
+							return fmt.Errorf(
 								"Failed to create %s directory",
 								dest,
 							)
-
-							return
 						}
 
 						logrus.Debugf(
@@ -61,8 +58,7 @@ func Commands() []cli.Command {
 				fileList, err := photo.FindFiles(source)
 
 				if err != nil {
-					logrus.Error("Failed to scan for files")
-					return
+					return fmt.Errorf("Failed to scan for files")
 				}
 
 				logrus.Infof("Finished scan for %d files", len(fileList))
@@ -89,7 +85,7 @@ func Commands() []cli.Command {
 
 						if _, err := os.Stat(filepath.Dir(name)); os.IsNotExist(err) {
 							if err := os.MkdirAll(filepath.Dir(name), 0755); err != nil {
-								logrus.Error("Failed to create formatted directory")
+								logrus.Errorf("Failed to create formatted directory")
 								break
 							}
 						}
@@ -115,6 +111,7 @@ func Commands() []cli.Command {
 				}
 
 				logrus.Info("Finished processing!")
+				return nil
 			},
 		},
 	}
