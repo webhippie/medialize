@@ -2,9 +2,41 @@
 
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
-## [Unreleased]
+## 2.0.0 - (unreleased 2.x series)
+### Added
+- `NewStringSlice` and `NewIntSlice` for creating their related types
+- `Float64SliceFlag` for unmarshaling a list of floats from the user
+- `Context.Lineage` to get all contexts from current up to global
+- `Context.LocalFlagNames` to get the flag names from *only* the current context
+- `BoolFlag.Value` to handle both default-false and default-true
+
+### Changed
+- `Context.FlagNames` now returns all flags in the context lineage
+- `Context.IsSet` now considers the full context lineage
+
+### Removed
+- the ability to specify `&StringSlice{...string}` or `&IntSlice{...int}`.
+  To migrate to the new API, you may choose to run [the migrator
+  (python) script](./cli-v1-to-v2).
+- The optimistic reordering of arguments and flags introduced by
+  https://github.com/codegangsta/cli/pull/36. This behavior only worked when
+  all arguments appeared before all flags, but caused [weird issues with boolean
+  flags](https://github.com/codegangsta/cli/issues/103) and [reordering of the
+  arguments](https://github.com/codegangsta/cli/issues/355) when the user
+  attempted to mix flags and arguments. Given the trade-offs we removed support
+  for this reordering.
+- adapter code for deprecated `Action` func signature
+- deprecated `App.Author`, `App.Email`, and `Command.ShortName` fields
+- All `Context.Global*` methods, as the non-global versions now traverse up
+  the context lineage automatically.
+- `Context.Parent` method, as this is now available via `Context.Lineage`
+- `BoolTFlag` and related code, as this is now available via `BoolFlag.Value`
+
+## [Unreleased] - (1.x series)
 ### Added
 - Flag type code generation via `go generate`
+- Write to stderr and exit 1 if action returns non-nil error
+- Added support for TOML to the `altsrc` loader
 
 ### Changed
 - Raise minimum tested/supported Go version to 1.2+
