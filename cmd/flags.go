@@ -1,17 +1,18 @@
 package cmd
 
 import (
-	"github.com/codegangsta/cli"
 	"github.com/webhippie/medialize/config"
+	"gopkg.in/urfave/cli.v2"
 )
 
 // Flags defines all available flags for this command.
 func Flags() []cli.Flag {
 	return []cli.Flag{
-		cli.BoolTFlag{
+		&cli.BoolFlag{
 			Name:        "update, u",
+			Value:       true,
 			Usage:       "Enable auto updates",
-			EnvVar:      "MEDIALIZE_UPDATE",
+			EnvVars:     []string{"MEDIALIZE_UPDATE"},
 			Destination: &config.Update,
 		},
 	}

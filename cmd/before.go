@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/codegangsta/cli"
+	"gopkg.in/urfave/cli.v2"
 )
 
 // Before gets called before any action on every execution.
@@ -13,7 +13,7 @@ func Before() cli.BeforeFunc {
 		logrus.SetOutput(os.Stdout)
 		logrus.SetLevel(logrus.DebugLevel)
 
-		if c.BoolT("update") {
+		if c.Bool("update") {
 			Update()
 		}
 
