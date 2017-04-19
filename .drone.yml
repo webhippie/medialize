@@ -27,8 +27,8 @@ pipeline:
       - CGO_ENABLED=0
       - TAGS=
       - GOPATH=/srv/app
-      - PATH=/srv/app/bin:$PATH
     commands:
+      - export PATH=/srv/app/bin:$PATH
       - make publish
     when:
       event: [ push, tag ]
