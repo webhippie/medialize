@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/Sirupsen/logrus"
+	"github.com/webhippie/medialize/config"
 	"gopkg.in/urfave/cli.v2"
 )
 
@@ -11,9 +12,14 @@ import (
 func Before() cli.BeforeFunc {
 	return func(c *cli.Context) error {
 		logrus.SetOutput(os.Stdout)
-		logrus.SetLevel(logrus.DebugLevel)
 
-		if c.Bool("update") {
+		if config.Debug {
+			logrus.SetLevel(logrus.DebugLevel)
+		} else {
+			logrus.SetLevel(logrus.InfoLevel)
+		}
+
+		if config.Update {
 			Update()
 		}
 

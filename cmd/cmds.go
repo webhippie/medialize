@@ -3,10 +3,13 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"path/filepath"
+	"path"
 
 	"github.com/Sirupsen/logrus"
+	"github.com/Unknwon/com"
+	"github.com/webhippie/medialize/config"
 	"github.com/webhippie/medialize/photo"
+	"github.com/webhippie/medialize/util"
 	"gopkg.in/urfave/cli.v2"
 )
 
@@ -19,100 +22,207 @@ func Commands() []*cli.Command {
 			ArgsUsage: "<source> <destination>",
 			Flags: []cli.Flag{
 				&cli.BoolFlag{
-					Name:  "rename",
-					Usage: "Rename the source insted of copying",
+					Name:        "rename",
+					Value:       false,
+					Usage:       "Rename the source insted of copying",
+					EnvVars:     []string{"MEDIALIZE_PHOTOS_RENAME"},
+					Destination: &config.Rename,
 				},
 			},
 			Action: func(c *cli.Context) error {
 				source := c.Args().Get(0)
 
-				if len(source) == 0 {
+				if source == "" {
 					return fmt.Errorf("Please provide a source folder")
 				}
 
 				dest := c.Args().Get(1)
 
-				if len(source) == 0 {
+				if dest == "" {
 					return fmt.Errorf("Please provide a dest folder")
 				}
 
-				if len(dest) > 0 {
-					if _, err := os.Stat(dest); os.IsNotExist(err) {
-						if err := os.MkdirAll(dest, 0755); err != nil {
-							return fmt.Errorf(
-								"Failed to create %s directory",
-								dest,
-							)
-						}
-
-						logrus.Debugf(
-							"Created %s folder",
-							dest,
-						)
+				if _, err := os.Stat(dest); os.IsNotExist(err) {
+					if err := os.MkdirAll(dest, 0755); err != nil {
+						return fmt.Errorf("Failed to create %s directory", dest)
 					}
-				} else {
-					dest, _ = os.Getwd()
+
+					logrus.Debugf("Created %s folder", dest)
 				}
 
-				logrus.Info("Starting scan for photos")
-				fileList, err := photo.FindFiles(source)
+				logrus.Infof("Starting scan for photos")
+				list, err := photo.Find(source)
 
 				if err != nil {
 					return fmt.Errorf("Failed to scan for files")
 				}
 
-				logrus.Infof("Finished scan for %d files", len(fileList))
+				logrus.Infof("Found %d files within scan", len(list))
 
-				for _, file := range fileList {
-					if photo.ValidExtension(file) {
-						logrus.Infof(
-							"Parsing of %s in progress",
-							file)
+				for _, file := range list {
+					if file.Valid() {
+						logrus.Debugf("Trying to process %s", file)
 					} else {
-						logrus.Infof(
-							"Skipping %s, invalid ext",
-							file)
-
+						logrus.Infof("Skipping %s as invalid", file)
 						continue
 					}
 
-					for i := 0; i < 100000; i++ {
-						name, _ := photo.NextName(file, dest, i)
+					creation, err := file.Creation()
 
-						if _, err := os.Stat(name); err == nil {
-							continue
+					if err == nil {
+						logrus.Debugf("Detected creation time as %s for %s", creation, file)
+
+						if err := copyPhotoByCreation(source, dest, file); err != nil {
+							logrus.Errorf("%s", err)
 						}
 
-						if _, err := os.Stat(filepath.Dir(name)); os.IsNotExist(err) {
-							if err := os.MkdirAll(filepath.Dir(name), 0755); err != nil {
-								logrus.Errorf("Failed to create formatted directory")
-								break
-							}
+						continue
+					} else {
+						logrus.Errorf("Failed to detect creation time for %s. %s", file, err)
+					}
+
+					checksum, err := file.Checksum()
+
+					if err == nil {
+						logrus.Debugf("Detected checksum as %s for %s", checksum, file)
+
+						if err := copyPhotoByChecksum(source, dest, file); err != nil {
+							logrus.Errorf("%s", err)
 						}
 
-						if c.Bool("rename") {
-							if err := os.Rename(file, name); err != nil {
-								logrus.Errorf("Failed to move %s", file)
-								break
-							} else {
-								logrus.Debugf("Moved %s successfully", file)
-							}
-						} else {
-							if err := os.Link(file, name); err != nil {
-								logrus.Errorf("Failed to copy %s", file)
-								break
-							} else {
-								logrus.Debugf("Copied %s successfully", file)
-							}
-						}
-
-						break
+						continue
+					} else {
+						logrus.Errorf("Failed to detect checksum for %s. %s", file, err)
 					}
 				}
 
-				logrus.Info("Finished processing!")
+				logrus.Infof("Finished processing!")
 				return nil
 			},
 		},
 	}
+}
+
+func copyPhotoByCreation(source, dest string, file *photo.File) error {
+	dest = path.Join(
+		dest,
+		file.CalculatedCreation.Format("2006/01"),
+	)
+
+	if !com.IsDir(dest) {
+		logrus.Debugf("Creating %s destination directory", dest)
+
+		if err := os.MkdirAll(dest, 0755); err != nil {
+			return fmt.Errorf("Failed to create destination directory. %s", err)
+		}
+	}
+
+	for i := 0; i < 100000; i++ {
+		destFile := path.Join(
+			dest,
+			fmt.Sprintf(
+				"%s-%05d%s",
+				file.CalculatedCreation.Format("20060102-150405-0700"),
+				i,
+				file.Ext(),
+			),
+		)
+
+		if com.IsExist(destFile) {
+			sourceChecksum, err := file.Checksum()
+
+			if err != nil {
+				return fmt.Errorf("Failed to process source checksum. %s", err)
+			}
+
+			destChecksum, err := util.Checksum(destFile)
+
+			if err != nil {
+				return fmt.Errorf("Failed to process destination checksum. %s", err)
+			}
+
+			if sourceChecksum == destChecksum {
+				if config.Rename {
+					logrus.Debugf("Dropping %s as it already exists as %s", file, destFile)
+					return os.Remove(file.Path)
+				} else {
+					logrus.Debugf("Skipping %s as it already exists as %s", file, destFile)
+					return nil
+				}
+			}
+
+			logrus.Debugf("Next name %s already exists", destFile)
+			continue
+		}
+
+		if config.Rename {
+			if err := os.Rename(file.Path, destFile); err != nil {
+				return fmt.Errorf("Failed to move %s.", file)
+			} else {
+				logrus.Debugf("Moved %s successfully", file)
+			}
+
+			return nil
+		} else {
+			if err := com.Copy(file.Path, destFile); err != nil {
+				return fmt.Errorf("Failed to copy %s", file)
+			} else {
+				logrus.Debugf("Copied %s successfully", file)
+			}
+
+			return nil
+		}
+	}
+
+	return fmt.Errorf("Failed to detect a destination for %s", file)
+}
+
+func copyPhotoByChecksum(source, dest string, file *photo.File) error {
+	dest = path.Join(
+		dest,
+		"0000",
+	)
+
+	if !com.IsDir(dest) {
+		logrus.Debugf("Creating %s destination directory", dest)
+
+		if err := os.MkdirAll(dest, 0755); err != nil {
+			return fmt.Errorf("Failed to create destination directory. %s", err)
+		}
+	}
+
+	destFile := path.Join(
+		dest,
+		fmt.Sprintf(
+			"%s%s",
+			file.CalculatedChecksum,
+			file.Ext(),
+		),
+	)
+
+	if com.IsExist(destFile) {
+		if config.Rename {
+			logrus.Debugf("Dropping %s as it already exists as %s", file, destFile)
+			return os.Remove(file.Path)
+		} else {
+			logrus.Debugf("Skipping %s as it already exists as %s", file, destFile)
+			return nil
+		}
+	}
+
+	if config.Rename {
+		if err := os.Rename(file.Path, destFile); err != nil {
+			return fmt.Errorf("Failed to move %s.", file)
+		} else {
+			logrus.Debugf("Moved %s successfully", file)
+		}
+	} else {
+		if err := com.Copy(file.Path, destFile); err != nil {
+			return fmt.Errorf("Failed to copy %s", file)
+		} else {
+			logrus.Debugf("Copied %s successfully", file)
+		}
+	}
+
+	return nil
 }

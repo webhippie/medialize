@@ -9,11 +9,18 @@ import (
 func Flags() []cli.Flag {
 	return []cli.Flag{
 		&cli.BoolFlag{
-			Name:        "update, u",
+			Name:        "update",
 			Value:       true,
 			Usage:       "Enable auto updates",
 			EnvVars:     []string{"MEDIALIZE_UPDATE"},
 			Destination: &config.Update,
+		},
+		&cli.BoolFlag{
+			Name:        "debug",
+			Value:       false,
+			Usage:       "Enable debugging output",
+			EnvVars:     []string{"MEDIALIZE_DEBUG"},
+			Destination: &config.Debug,
 		},
 	}
 }

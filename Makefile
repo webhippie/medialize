@@ -9,9 +9,8 @@ endif
 
 SHA := $(shell git rev-parse --short HEAD)
 DATE := $(shell date -u '+%Y%m%d')
-LDFLAGS += -s -w -extldflags "-static" -X "$(IMPORT)/config.VersionDev=$(SHA)" -X "$(IMPORT)/config.VersionDate=$(DATE)"
+LDFLAGS += -X "$(IMPORT)/config.VersionDev=$(SHA)" -X "$(IMPORT)/config.VersionDate=$(DATE)"
 
-TARGETS ?= linux/*,darwin/*,windows/*
 PACKAGES ?= $(shell go list ./... | grep -v /vendor/)
 SOURCES ?= $(shell find . -name "*.go" -type f -not -path "./vendor/*")
 
@@ -142,50 +141,95 @@ $(EXECUTABLE): $(SOURCES)
 	go build -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@
 
 .PHONY: release
-release: release-dirs release-build release-copy release-check
+release: release-dirs release-darwin release-linux release-windows release-move release-check
 
 .PHONY: release-dirs
 release-dirs:
-	mkdir -p $(DIST)/binaries $(DIST)/release
+	mkdir -p $(DIST)/binaries
+	mkdir -p $(DIST)/release
 
-.PHONY: release-build
-release-build:
+.PHONY: release-darwin
+release-darwin:
 	@which xgo > /dev/null; if [ $$? -ne 0 ]; then \
 		go get -u github.com/karalabe/xgo; \
 	fi
-	xgo -dest $(DIST)/binaries -tags '$(TAGS)' -ldflags '-s -w $(LDFLAGS)' -targets '$(TARGETS)' -out $(EXECUTABLE)-$(VERSION) $(IMPORT)
+	xgo -dest $(DIST)/binaries -tags '$(TAGS)' -ldflags '-s -w $(LDFLAGS)' -targets 'darwin/*' -out $(EXECUTABLE)-$(VERSION) $(IMPORT)
 ifeq ($(CI),drone)
 	mv /build/* $(DIST)/binaries
 endif
 
-.PHONY: release-copy
-release-copy:
-	$(foreach file,$(wildcard $(DIST)/binaries/$(EXECUTABLE)-*),cp $(file) $(DIST)/release/$(notdir $(file));)
+.PHONY: release-linux
+release-linux:
+	@which xgo > /dev/null; if [ $$? -ne 0 ]; then \
+		go get -u github.com/karalabe/xgo; \
+	fi
+	xgo -dest $(DIST)/binaries -tags '$(TAGS)' -ldflags '-s -w -extldflags "-static" $(LDFLAGS)' -targets 'linux/*' -out $(EXECUTABLE)-$(VERSION) $(IMPORT)
+ifeq ($(CI),drone)
+	mv /build/* $(DIST)/binaries
+endif
+
+.PHONY: release-windows
+release-windows:
+	@which xgo > /dev/null; if [ $$? -ne 0 ]; then \
+		go get -u github.com/karalabe/xgo; \
+	fi
+	xgo -dest $(DIST)/binaries -tags '$(TAGS)' -ldflags '-s -w -extldflags "-static" $(LDFLAGS)' -targets 'windows/*' -out $(EXECUTABLE)-$(VERSION) $(IMPORT)
+ifeq ($(CI),drone)
+	mv /build/* $(DIST)/binaries
+endif
+
+.PHONY: release-move
+release-move:
+	$(foreach file,$(wildcard $(DIST)/binaries/$(EXECUTABLE)-*),mv $(file) $(DIST)/release/$(notdir $(file));)
+	rm -rf $(DIST)/binaries
 
 .PHONY: release-check
 release-check:
 	cd $(DIST)/release; $(foreach file,$(wildcard $(DIST)/release/$(EXECUTABLE)-*),sha256sum $(notdir $(file)) > $(notdir $(file)).sha256;)
 
 .PHONY: updater
-updater: updater-dirs updater-build updater-copy updater-push
+updater: updater-dirs updater-darwin updater-linux updater-windows updater-move updater-push
 
 .PHONY: updater-dirs
 updater-dirs:
-	mkdir -p $(DIST)/binaries $(DIST)/updater
+	mkdir -p $(DIST)/binaries
+	mkdir -p $(DIST)/updater
+	mkdir -p $(DIST)/publish
 
-.PHONY: updater-build
-updater-build:
+.PHONY: updater-darwin
+updater-darwin:
 	@which xgo > /dev/null; if [ $$? -ne 0 ]; then \
 		go get -u github.com/karalabe/xgo; \
 	fi
-	xgo -dest $(DIST)/binaries -tags '$(TAGS)' -ldflags '-s -w $(LDFLAGS)' -targets '$(TARGETS)' -out $(EXECUTABLE)-$(VERSION) $(IMPORT)
+	xgo -dest $(DIST)/binaries -tags '$(TAGS)' -ldflags '-s -w $(LDFLAGS)' -targets 'darwin/*' -out $(EXECUTABLE)-$(VERSION) $(IMPORT)
 ifeq ($(CI),drone)
 	mv /build/* $(DIST)/binaries
 endif
 
-.PHONY: updater-copy
-updater-copy:
-	$(foreach file,$(wildcard $(DIST)/binaries/$(EXECUTABLE)-*),cp $(file) $(DIST)/updater/$(word 3,$(subst -, ,$(notdir $(file))))-$(subst .exe,,$(word 4,$(subst -, ,$(notdir $(file)))));)
+.PHONY: updater-linux
+updater-linux:
+	@which xgo > /dev/null; if [ $$? -ne 0 ]; then \
+		go get -u github.com/karalabe/xgo; \
+	fi
+	xgo -dest $(DIST)/binaries -tags '$(TAGS)' -ldflags '-s -w -extldflags "-static" $(LDFLAGS)' -targets 'linux/*' -out $(EXECUTABLE)-$(VERSION) $(IMPORT)
+ifeq ($(CI),drone)
+	mv /build/* $(DIST)/binaries
+endif
+
+.PHONY: updater-windows
+updater-windows:
+	@which xgo > /dev/null; if [ $$? -ne 0 ]; then \
+		go get -u github.com/karalabe/xgo; \
+	fi
+	xgo -dest $(DIST)/binaries -tags '$(TAGS)' -ldflags '-s -w -extldflags "-static" $(LDFLAGS)' -targets 'windows/*' -out $(EXECUTABLE)-$(VERSION) $(IMPORT)
+ifeq ($(CI),drone)
+	mv /build/* $(DIST)/binaries
+endif
+
+.PHONY: updater-move
+updater-move:
+	$(foreach file,$(wildcard $(DIST)/binaries/$(EXECUTABLE)-*),mv $(file) $(DIST)/updater/$(word 3,$(subst -, ,$(notdir $(file))))-$(subst .exe,,$(lastword $(subst -, ,$(notdir $(file)))));)
+	rm -rf $(DIST)/binaries
 
 .PHONY: updater-push
 updater-push:
