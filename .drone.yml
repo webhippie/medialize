@@ -11,6 +11,8 @@ pipeline:
       - TAGS=
       - GOPATH=/srv/app
     commands:
+      - apk add -U libexif-dev
+
       - make clean
       - make vet
       - make varcheck
