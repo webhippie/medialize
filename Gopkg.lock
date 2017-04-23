@@ -1,0 +1,67 @@
+memo = "86f86cfb7077d12c4454ac7a35c61685110a57192e877ce83cf7dc8aaabd04ad"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/Sirupsen/logrus"
+  packages = ["."]
+  revision = "10f801ebc38b33738c9d17d50860f484a0988ff5"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/Unknwon/com"
+  packages = ["."]
+  revision = "0db4a625e949e956314d7d1adea9bf82384cc10c"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/joho/godotenv"
+  packages = ["."]
+  revision = "325433c502d409f3c3dc820098fb0cfe38d98dc7"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/kardianos/osext"
+  packages = ["."]
+  revision = "9d302b58e975387d0b4d9be876622c86cefe64be"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/kr/binarydist"
+  packages = ["."]
+  revision = "3035450ff8b987ec4373f65c40767f096b35f2d2"
+
+[[projects]]
+  branch = "go1"
+  name = "github.com/rwcarlsen/goexif"
+  packages = ["exif","tiff"]
+  revision = "709fab3d192d7c62f86043caff1e7e3fb0f42bd8"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/sanbornm/go-selfupdate"
+  packages = ["selfupdate"]
+  revision = "bf295275fb1ee4e347c09330ed9a3c76cc19895a"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/xiam/exif"
+  packages = ["."]
+  revision = "33e82e3db72f03c4d55d10b7275d267fc7cd0e45"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/sys"
+  packages = ["unix"]
+  revision = "ea9bcade75cb975a0b9738936568ab388b845617"
+
+[[projects]]
+  branch = "v0"
+  name = "gopkg.in/inconshreveable/go-update.v0"
+  packages = [".","download"]
+  revision = "d8b0b1d421aa1cbf392c05869f8abbc669bb7066"
+
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/urfave/cli.v2"
+  packages = ["."]
+  revision = "922e3e2ceaaa1831c859679af772dcd534095119"

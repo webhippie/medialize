@@ -1,0 +1,28 @@
+
+[[dependencies]]
+  branch = "master"
+  name = "github.com/Sirupsen/logrus"
+
+[[dependencies]]
+  branch = "master"
+  name = "github.com/Unknwon/com"
+
+[[dependencies]]
+  branch = "master"
+  name = "github.com/joho/godotenv"
+
+[[dependencies]]
+  branch = "go1"
+  name = "github.com/rwcarlsen/goexif"
+
+[[dependencies]]
+  branch = "master"
+  name = "github.com/sanbornm/go-selfupdate"
+
+[[dependencies]]
+  branch = "master"
+  name = "github.com/xiam/exif"
+
+[[dependencies]]
+  branch = "v2"
+  name = "gopkg.in/urfave/cli.v2"

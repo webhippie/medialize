@@ -31,10 +31,10 @@ all: build
 
 .PHONY: update
 update:
-	@which govend > /dev/null; if [ $$? -ne 0 ]; then \
-		go get -u github.com/govend/govend; \
+	@which dep > /dev/null; if [ $$? -ne 0 ]; then \
+		go get -u github.com/golang/dep/cmd/dep; \
 	fi
-	govend -vtlu --prune
+	dep ensure -update
 
 .PHONY: clean
 clean:
