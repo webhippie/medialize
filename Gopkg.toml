@@ -1,28 +1,27 @@
-
-[[dependencies]]
-  branch = "master"
-  name = "github.com/Sirupsen/logrus"
-
-[[dependencies]]
-  branch = "master"
+[[constraint]]
   name = "github.com/Unknwon/com"
+  version = "1.0.0"
 
-[[dependencies]]
-  branch = "master"
+[[constraint]]
+  name = "github.com/coreos/go-semver"
+  version = "0.2.0"
+
+[[constraint]]
   name = "github.com/joho/godotenv"
+  version = "1.2.0"
 
-[[dependencies]]
+[[constraint]]
   branch = "go1"
   name = "github.com/rwcarlsen/goexif"
 
-[[dependencies]]
-  branch = "master"
-  name = "github.com/sanbornm/go-selfupdate"
+[[constraint]]
+  name = "github.com/sirupsen/logrus"
+  version = "1.0.5"
 
-[[dependencies]]
-  branch = "master"
-  name = "github.com/xiam/exif"
-
-[[dependencies]]
+[[constraint]]
   branch = "v2"
   name = "gopkg.in/urfave/cli.v2"
+
+[prune]
+  go-tests = true
+  unused-packages = true
