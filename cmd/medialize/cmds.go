@@ -5,8 +5,8 @@ import (
 	"os"
 	"path"
 
-	"github.com/sirupsen/logrus"
 	"github.com/Unknwon/com"
+	"github.com/sirupsen/logrus"
 	"github.com/webhippie/medialize/pkg/config"
 	"github.com/webhippie/medialize/pkg/photo"
 	"github.com/webhippie/medialize/pkg/util"
@@ -145,10 +145,10 @@ func copyPhotoByCreation(source, dest string, file *photo.File) error {
 				if config.Rename {
 					logrus.Debugf("Dropping %s as it already exists as %s", file, destFile)
 					return os.Remove(file.Path)
-				} else {
-					logrus.Debugf("Skipping %s as it already exists as %s", file, destFile)
-					return nil
 				}
+
+				logrus.Debugf("Skipping %s as it already exists as %s", file, destFile)
+				return nil
 			}
 
 			logrus.Debugf("Next name %s already exists", destFile)
@@ -157,21 +157,19 @@ func copyPhotoByCreation(source, dest string, file *photo.File) error {
 
 		if config.Rename {
 			if err := os.Rename(file.Path, destFile); err != nil {
-				return fmt.Errorf("Failed to move %s.", file)
-			} else {
-				logrus.Debugf("Moved %s successfully", file)
+				return fmt.Errorf("Failed to move %s", file)
 			}
 
-			return nil
-		} else {
-			if err := com.Copy(file.Path, destFile); err != nil {
-				return fmt.Errorf("Failed to copy %s", file)
-			} else {
-				logrus.Debugf("Copied %s successfully", file)
-			}
-
+			logrus.Debugf("Moved %s successfully", file)
 			return nil
 		}
+
+		if err := com.Copy(file.Path, destFile); err != nil {
+			return fmt.Errorf("Failed to copy %s", file)
+		}
+
+		logrus.Debugf("Copied %s successfully", file)
+		return nil
 	}
 
 	return fmt.Errorf("Failed to detect a destination for %s", file)
@@ -204,24 +202,24 @@ func copyPhotoByChecksum(source, dest string, file *photo.File) error {
 		if config.Rename {
 			logrus.Debugf("Dropping %s as it already exists as %s", file, destFile)
 			return os.Remove(file.Path)
-		} else {
-			logrus.Debugf("Skipping %s as it already exists as %s", file, destFile)
-			return nil
 		}
+
+		logrus.Debugf("Skipping %s as it already exists as %s", file, destFile)
+		return nil
 	}
 
 	if config.Rename {
 		if err := os.Rename(file.Path, destFile); err != nil {
-			return fmt.Errorf("Failed to move %s.", file)
-		} else {
-			logrus.Debugf("Moved %s successfully", file)
+			return fmt.Errorf("Failed to move %s", file)
 		}
+
+		logrus.Debugf("Moved %s successfully", file)
 	} else {
 		if err := com.Copy(file.Path, destFile); err != nil {
 			return fmt.Errorf("Failed to copy %s", file)
-		} else {
-			logrus.Debugf("Copied %s successfully", file)
 		}
+
+		logrus.Debugf("Copied %s successfully", file)
 	}
 
 	return nil

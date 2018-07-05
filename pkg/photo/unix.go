@@ -5,7 +5,6 @@ package photo
 import (
 	// "fmt"
 	"time"
-
 	// "github.com/xiam/exif"
 )
 
