@@ -1,0 +1,15 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Medialize"
+
+[blackfriday]
+  angledQuotes = true
+  fractions = false
+  plainIDAnchors = true
+  smartlists = true
+  extensions = ["hardLineBreak"]
+
+[params]
+  author = "Thomas Boerger"
+  description = "Sort and filter your files based on metdata"
+  keywords = "media, files, sort"

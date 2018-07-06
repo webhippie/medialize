@@ -17,7 +17,7 @@ func main() {
 	app := &cli.App{
 		Name:      "medialize",
 		Version:   version.Version.String(),
-		Usage:     "sort and filter your media files based on meta infos",
+		Usage:     "sort and filter your files based on metdata",
 		Compiled:  time.Now(),
 		ArgsUsage: " ",
 
