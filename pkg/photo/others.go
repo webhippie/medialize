@@ -24,12 +24,12 @@ func (h *File) Creation() (time.Time, error) {
 		return time.Now(), fmt.Errorf("Failed to parse exif. %s", err)
 	}
 
-	taken, err := info.DateTime()
+	parsed, err := info.DateTime()
 
 	if err != nil {
 		return time.Now(), fmt.Errorf("Failed to parse time. %s", err)
 	}
 
 	h.CalculatedCreation = parsed
-	return taken, nil
+	return parsed, nil
 }
