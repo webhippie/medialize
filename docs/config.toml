@@ -1,6 +1,10 @@
 baseURL = "https://webhippie.github.io/medialize/"
 languageCode = "en-us"
 title = "Medialize"
+pygmentsUseClasses = true
+
+[markup.goldmark.renderer]
+  unsafe = true
 
 [blackfriday]
   angledQuotes = true
@@ -11,5 +15,5 @@ title = "Medialize"
 
 [params]
   author = "Thomas Boerger"
-  description = "Sort and filter your files based on metdata"
-  keywords = "media, files, sort"
+  description = "Sort and filter your photos"
+  keywords = "photo, image, video, sorting"

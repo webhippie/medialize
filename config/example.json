@@ -1,0 +1,12 @@
+{
+    "photos": {
+        "source": "path/to/source/directory",
+        "target": "path/to/target/directory",
+        "rename": true
+    },
+    "log": {
+        "level": "info",
+        "pretty": true,
+        "color": true
+    }
+}
