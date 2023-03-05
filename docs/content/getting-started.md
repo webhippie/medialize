@@ -14,7 +14,10 @@ packages for the major distributions later if we see the need for it.
 
 ### Docker
 
-TBD
+Generally we are offering the images through
+[quay.io/webhippie/medialize][quay] and [webhippie/medialize][dockerhub], so
+feel free to choose one of the providers. Maybe we will come up with Kustomize
+manifests or some Helm chart.
 
 ### Binaries
 
@@ -78,5 +81,7 @@ formated help output if you execute the binary similar to something like
  `medialize --help`.
 
 [docker]: https://www.docker.com/
+[quay]: https://quay.io/repository/webhippie/medialize
+[dockerhub]: https://hub.docker.com/r/webhippie/medialize
 [downloads]: https://dl.webhippie.de/
 [repo]: https://github.com/webhippie/medialize/tree/master/config
