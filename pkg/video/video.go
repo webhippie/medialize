@@ -1,6 +1,7 @@
-package photo
+package video
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"os"
@@ -10,16 +11,15 @@ import (
 	"time"
 
 	"github.com/rs/zerolog/log"
-	"github.com/rwcarlsen/goexif/exif"
 	"github.com/webhippie/medialize/pkg/checksum"
+	"gopkg.in/vansante/go-ffprobe.v2"
 )
 
 var (
 	validExtensions = []string{
-		".png",
-		".gif",
-		".jpg",
-		".jpeg",
+		".mp4",
+		".mov",
+		".3gp",
 	}
 )
 
@@ -59,14 +59,7 @@ func (h *File) Valid() bool {
 
 // Ext tries to return a cleaned file extension.
 func (h *File) Ext() string {
-	result := strings.ToLower(filepath.Ext(h.info.Name()))
-
-	switch result {
-	case ".jpeg":
-		return ".jpg"
-	default:
-		return result
-	}
+	return strings.ToLower(filepath.Ext(h.info.Name()))
 }
 
 // Checksum generates a SHA256 checksum from file content.
@@ -76,25 +69,41 @@ func (h *File) Checksum() (string, error) {
 
 // Creation tries to extract the correct creation time.
 func (h *File) Creation() (time.Time, error) {
-	handle, err := os.Open(h.path)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	parsed, err := ffprobe.ProbeURL(ctx, h.path)
 
 	if err != nil {
-		return time.Now(), fmt.Errorf("failed to open file: %w", err)
+		return time.Now(), fmt.Errorf("failed to parse file: %w", err)
 	}
 
-	info, err := exif.Decode(handle)
+	for _, tag := range []string{
+		"com.apple.quicktime.creationdate",
+		"creation_time",
+	} {
+		if val, err := parsed.Format.TagList.GetString(tag); err == nil {
+			if strings.HasSuffix(val, "000000Z") {
+				result, err := time.Parse("2006-01-02T15:04:05.000000Z", val)
 
-	if err != nil {
-		return time.Now(), fmt.Errorf("failed to parse exif: %w", err)
+				if err != nil {
+					return time.Now(), fmt.Errorf("failed to parse time: %w", err)
+				}
+
+				return result, nil
+			}
+
+			result, err := time.Parse("2006-01-02T15:04:05-0700", val)
+
+			if err != nil {
+				return time.Now(), fmt.Errorf("failed to parse time: %w", err)
+			}
+
+			return result, nil
+		}
 	}
 
-	parsed, err := info.DateTime()
-
-	if err != nil {
-		return time.Now(), fmt.Errorf("failed to parse time: %w", err)
-	}
-
-	return parsed, nil
+	return time.Now(), fmt.Errorf("no datetime information available")
 }
 
 // Move simply moves the file to defined target.
@@ -247,7 +256,7 @@ func (h *File) handle(target string, byChecksum bool) (string, bool) {
 	log.Warn().
 		Err(err).
 		Str("path", h.path).
-		Msg("Failed to detect exif data")
+		Msg("Failed to detect meta data")
 
 	if !byChecksum {
 		log.Info().

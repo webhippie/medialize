@@ -21,6 +21,7 @@
           buildInputs = with pkgs; [
             gnumake
             go_1_19
+            imagemagick
           ];
 
           shellHook = ''

@@ -2,7 +2,14 @@
     "photos": {
         "source": "path/to/source/directory",
         "target": "path/to/target/directory",
-        "rename": true
+        "rename": true,
+        "by_checksum": true
+    },
+    "videos": {
+        "source": "path/to/source/directory",
+        "target": "path/to/target/directory",
+        "rename": true,
+        "by_checksum": true
     },
     "log": {
         "level": "info",
