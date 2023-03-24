@@ -423,6 +423,9 @@ video files based on the included metadata like EXIF data stored within photos.
 can choose between <a href="https://www.docker.com/">Docker</a> or pre-built binaries which are stored on
 our download mirror and GitHub releases. Maybe we will also provide system
 packages for the major distributions later if we see the need for it.</p>
+<p>If you want to use the <code>videos</code> sub-command you got to install
+<a href="https://imagemagick.org/">imagemagick</a> as this gets executed by this tool to extract the
+meta information from videos.</p>
 <h3 id="docker">Docker</h3>
 <p>Generally we are offering the images through
 <a href="https://quay.io/repository/webhippie/medialize">quay.io/webhippie/medialize</a> and <a href="https://hub.docker.com/r/webhippie/medialize">webhippie/medialize</a>, so
@@ -448,6 +451,28 @@ the available variables below.</p>
 <dt>MEDIALIZE_LOG_PRETTY</dt>
 <dd>Enable pretty logging, defaults to <code>true</code></dd>
 </dl>
+<h4 id="photos">Photos</h4>
+<dl>
+<dt>MEDIALIZE_PHOTOS_SOURCE</dt>
+<dd>Path to source directory</dd>
+<dt>MEDIALIZE_PHOTOS_TARGET</dt>
+<dd>Path to target directory</dd>
+<dt>MEDIALIZE_PHOTOS_RENAME</dt>
+<dd>Rename the source instead of copying, defaults to <code>false</code></dd>
+<dt>MEDIALIZE_PHOTOS_BY_CHECKSUM</dt>
+<dd>Rename by checksum as fallback, defaults to <code>true</code></dd>
+</dl>
+<h4 id="videos">Videos</h4>
+<dl>
+<dt>MEDIALIZE_VIDEOS_SOURCE</dt>
+<dd>Path to source directory</dd>
+<dt>MEDIALIZE_VIDEOS_TARGET</dt>
+<dd>Path to target directory</dd>
+<dt>MEDIALIZE_VIDEOS_RENAME</dt>
+<dd>Rename the source instead of copying, defaults to <code>false</code></dd>
+<dt>MEDIALIZE_VIDEOS_BY_CHECKSUM</dt>
+<dd>Rename by checksum as fallback, defaults to <code>true</code></dd>
+</dl>
 <h3 id="commandline-flags">Commandline flags</h3>
 <p>If you prefer to configure the service with commandline flags you can see the
 available variables below.</p>
@@ -459,6 +484,28 @@ available variables below.</p>
 <dd>Enable colored logging, defaults to <code>true</code></dd>
 <dt>&ndash;log-pretty</dt>
 <dd>Enable pretty logging, defaults to <code>true</code></dd>
+</dl>
+<h4 id="photos-1">Photos</h4>
+<dl>
+<dt>&ndash;source</dt>
+<dd>Path to source directory</dd>
+<dt>&ndash;target</dt>
+<dd>Path to target directory</dd>
+<dt>&ndash;rename</dt>
+<dd>Rename the source instead of copying, defaults to <code>false</code></dd>
+<dt>&ndash;by-checksum</dt>
+<dd>Rename by checksum as fallback, defaults to <code>true</code></dd>
+</dl>
+<h4 id="videos-1">Videos</h4>
+<dl>
+<dt>&ndash;source</dt>
+<dd>Path to source directory</dd>
+<dt>&ndash;target</dt>
+<dd>Path to target directory</dd>
+<dt>&ndash;rename</dt>
+<dd>Rename the source instead of copying, defaults to <code>false</code></dd>
+<dt>&ndash;by-checksum</dt>
+<dd>Rename by checksum as fallback, defaults to <code>true</code></dd>
 </dl>
 <h3 id="configuration-file">Configuration file</h3>
 <p>So far we support multiple file formats like <code>json</code> or <code>yaml</code>, if you want to
