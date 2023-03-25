@@ -109,7 +109,7 @@ func (h *File) Creation() (time.Time, error) {
 // Move simply moves the file to defined target.
 func (h *File) Move(target string, byChecksum bool) {
 	if final, ok := h.handle(target, byChecksum); ok {
-		if err := os.Rename(h.path, final); err != nil {
+		if err := h.rename(final); err != nil {
 			log.Error().
 				Err(err).
 				Str("source", h.path).
@@ -309,4 +309,50 @@ func (h *File) handle(target string, byChecksum bool) (string, bool) {
 		Msg("Failed to generate checksum")
 
 	return "", false
+}
+
+func (h *File) rename(target string) error {
+	err := os.Rename(h.path, target)
+
+	if err != nil && strings.Contains(err.Error(), "invalid cross-device link") {
+		return h.renameCrossDevice(target)
+	}
+
+	return err
+}
+
+func (h *File) renameCrossDevice(target string) error {
+	src, err := os.Open(h.path)
+
+	if err != nil {
+		return fmt.Errorf("failed to open source: %w", err)
+	}
+
+	defer src.Close()
+
+	dst, err := os.Create(target)
+
+	if err != nil {
+		return fmt.Errorf("failed to create target: %w", err)
+	}
+
+	defer dst.Close()
+
+	if _, err = io.Copy(dst, src); err != nil {
+		return fmt.Errorf("failed to copy file: %w", err)
+	}
+
+	fi, err := os.Stat(h.path)
+
+	if err != nil {
+		os.Remove(target)
+		return fmt.Errorf("failed to stat source: %w", err)
+	}
+
+	if err := os.Chmod(target, fi.Mode()); err != nil {
+		os.Remove(target)
+		return fmt.Errorf("failed to chmod target: %w", err)
+	}
+
+	return os.Remove(h.path)
 }
