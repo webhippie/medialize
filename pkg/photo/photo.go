@@ -84,7 +84,7 @@ func (h *File) Creation() (time.Time, error) {
 
 	info, err := exif.Decode(handle)
 
-	if err != nil {
+	if err != nil && exif.IsCriticalError(err) {
 		return time.Now(), fmt.Errorf("failed to parse exif: %w", err)
 	}
 
