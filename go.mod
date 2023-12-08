@@ -7,7 +7,7 @@ require (
 	github.com/rs/zerolog v1.31.0
 	github.com/rwcarlsen/goexif v0.0.0-20190401172101-9e8deecbddbd
 	github.com/spf13/cobra v1.8.0
-	github.com/spf13/viper v1.18.0
+	github.com/spf13/viper v1.18.1
 	github.com/stretchr/testify v1.8.4
 	gopkg.in/vansante/go-ffprobe.v2 v2.1.1
 )
