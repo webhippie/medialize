@@ -13,28 +13,28 @@
       <link>https://webhippie.github.io/medialize/about/</link>
       <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
       <guid>https://webhippie.github.io/medialize/about/</guid>
-      <description>This command-line tool offers you some options to properly archive your photo or video files based on the included metadata like EXIF data stored within photos.</description>
+      <description>&lt;p&gt;This command-line tool offers you some options to properly archive your photo or&#xA;video files based on the included metadata like EXIF data stored within photos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting Started</title>
       <link>https://webhippie.github.io/medialize/getting-started/</link>
       <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
       <guid>https://webhippie.github.io/medialize/getting-started/</guid>
-      <description>Installation So far we are offering only a few different variants for the installation. You can choose between Docker or pre-built binaries which are stored on our download mirror and GitHub releases. Maybe we will also provide system packages for the major distributions later if we see the need for it.&#xA;If you want to use the videos sub-command you got to install imagemagick as this gets executed by this tool to extract the meta information from videos.</description>
+      <description>&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;&#xA;&lt;p&gt;So far we are offering only a few different variants for the installation. You&#xA;can choose between &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; or pre-built binaries which are stored on&#xA;our download mirror and GitHub releases. Maybe we will also provide system&#xA;packages for the major distributions later if we see the need for it.&lt;/p&gt;&#xA;&lt;p&gt;If you want to use the &lt;code&gt;videos&lt;/code&gt; sub-command you got to install&#xA;&lt;a href=&#34;https://imagemagick.org/&#34;&gt;imagemagick&lt;/a&gt; as this gets executed by this tool to extract the&#xA;meta information from videos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building</title>
       <link>https://webhippie.github.io/medialize/building/</link>
       <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
       <guid>https://webhippie.github.io/medialize/building/</guid>
-      <description>As this project is built with Go you need to install Go first. The installation of Go is out of the scope of this document, please follow the official documentation. After the installation of Go you need to get the sources:&#xA;git clone https://github.com/webhippie/medialize.git cd medialize/ All required tool besides Go itself are bundled by Go modules, all you need is part of the Makfile:&#xA;make generate build Finally you should have the binary within the bin/ folder now, give it a try with .</description>
+      <description>&lt;p&gt;As this project is built with Go you need to install Go first. The installation&#xA;of Go is out of the scope of this document, please follow the&#xA;&lt;a href=&#34;https://golang.org/doc/install&#34;&gt;official documentation&lt;/a&gt;. After the installation of Go you need to get&#xA;the sources:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/webhippie/medialize.git&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd medialize/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;p&gt;All required tool besides Go itself are bundled by Go modules, all you need is&#xA;part of the &lt;code&gt;Makfile&lt;/code&gt;:&lt;/p&gt;</description>
     </item>
     <item>
       <title>License</title>
       <link>https://webhippie.github.io/medialize/license/</link>
       <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
       <guid>https://webhippie.github.io/medialize/license/</guid>
-      <description>This project is licensed under the Apache 2.0 license. For the license of the used libraries you have to check the respective sources.</description>
+      <description>&lt;p&gt;This project is licensed under the &lt;a href=&#34;https://github.com/webhippie/medialize/blob/master/LICENSE&#34;&gt;Apache 2.0&lt;/a&gt; license. For the&#xA;license of the used libraries you have to check the respective sources.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
