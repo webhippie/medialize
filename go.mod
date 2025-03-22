@@ -4,7 +4,7 @@ go 1.23.0
 
 require (
 	github.com/joho/godotenv v1.5.1
-	github.com/rs/zerolog v1.33.0
+	github.com/rs/zerolog v1.34.0
 	github.com/rwcarlsen/goexif v0.0.0-20190401172101-9e8deecbddbd
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.0
