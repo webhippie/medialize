@@ -29,19 +29,19 @@ func init() {
 
 	videosCmd.PersistentFlags().String("source", defaultVideosSource, "Path to source directory")
 	viper.SetDefault("videos.source", defaultVideosSource)
-	viper.BindPFlag("videos.source", videosCmd.PersistentFlags().Lookup("source"))
+	_ = viper.BindPFlag("videos.source", videosCmd.PersistentFlags().Lookup("source"))
 
 	videosCmd.PersistentFlags().String("target", defaultVideosTarget, "Path to target directory")
 	viper.SetDefault("videos.target", defaultVideosTarget)
-	viper.BindPFlag("videos.target", videosCmd.PersistentFlags().Lookup("target"))
+	_ = viper.BindPFlag("videos.target", videosCmd.PersistentFlags().Lookup("target"))
 
 	videosCmd.PersistentFlags().Bool("rename", defaultVideosRename, "Rename the source instead of copying")
 	viper.SetDefault("videos.rename", defaultVideosRename)
-	viper.BindPFlag("videos.rename", videosCmd.PersistentFlags().Lookup("rename"))
+	_ = viper.BindPFlag("videos.rename", videosCmd.PersistentFlags().Lookup("rename"))
 
 	videosCmd.PersistentFlags().Bool("by-checksum", defaultVideosByChecksum, "Rename by checksum as fallback")
 	viper.SetDefault("videos.by_checksum", defaultVideosByChecksum)
-	viper.BindPFlag("videos.by_checksum", videosCmd.PersistentFlags().Lookup("by-checksum"))
+	_ = viper.BindPFlag("videos.by_checksum", videosCmd.PersistentFlags().Lookup("by-checksum"))
 }
 
 func videosAction(_ *cobra.Command, _ []string) {

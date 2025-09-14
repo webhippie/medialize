@@ -16,7 +16,7 @@ func New(path string) (string, error) {
 		return "", fmt.Errorf("failed to open file: %w", err)
 	}
 
-	defer file.Close()
+	defer func() { _ = file.Close() }()
 
 	hash := sha256.New()
 
