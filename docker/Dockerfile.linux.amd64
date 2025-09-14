@@ -1,9 +1,0 @@
-FROM amd64/alpine:3.22@sha256:04f9172abd4691ef13a65d0c5c3057ba365a8db269e848ae24f2151e50997f99
-
-ENTRYPOINT ["/usr/bin/medialize"]
-CMD ["help"]
-
-RUN apk add --no-cache ca-certificates mailcap imagemagick && \
-    rm -rf /var/cache/apk/*
-
-COPY bin/medialize /usr/bin/medialize

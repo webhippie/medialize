@@ -140,7 +140,7 @@ func (h *File) Copy(target string, byChecksum bool) {
 			return
 		}
 
-		defer s.Close()
+		defer func() { _ = s.Close() }()
 
 		d, err := os.Create(final)
 
@@ -153,7 +153,7 @@ func (h *File) Copy(target string, byChecksum bool) {
 			return
 		}
 
-		defer d.Close()
+		defer func() { _ = d.Close() }()
 
 		if _, err := io.Copy(d, s); err != nil {
 			log.Error().
@@ -328,7 +328,7 @@ func (h *File) renameCrossDevice(target string) error {
 		return fmt.Errorf("failed to open source: %w", err)
 	}
 
-	defer src.Close()
+	defer func() { _ = src.Close() }()
 
 	dst, err := os.Create(target)
 
@@ -336,7 +336,7 @@ func (h *File) renameCrossDevice(target string) error {
 		return fmt.Errorf("failed to create target: %w", err)
 	}
 
-	defer dst.Close()
+	defer func() { _ = dst.Close() }()
 
 	if _, err = io.Copy(dst, src); err != nil {
 		return fmt.Errorf("failed to copy file: %w", err)
@@ -345,12 +345,12 @@ func (h *File) renameCrossDevice(target string) error {
 	fi, err := os.Stat(h.path)
 
 	if err != nil {
-		os.Remove(target)
+		_ = os.Remove(target)
 		return fmt.Errorf("failed to stat source: %w", err)
 	}
 
 	if err := os.Chmod(target, fi.Mode()); err != nil {
-		os.Remove(target)
+		_ = os.Remove(target)
 		return fmt.Errorf("failed to chmod target: %w", err)
 	}
 

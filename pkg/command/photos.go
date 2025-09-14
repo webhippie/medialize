@@ -29,19 +29,19 @@ func init() {
 
 	photosCmd.PersistentFlags().String("source", defaultPhotosSource, "Path to source directory")
 	viper.SetDefault("photos.source", defaultPhotosSource)
-	viper.BindPFlag("photos.source", photosCmd.PersistentFlags().Lookup("source"))
+	_ = viper.BindPFlag("photos.source", photosCmd.PersistentFlags().Lookup("source"))
 
 	photosCmd.PersistentFlags().String("target", defaultPhotosTarget, "Path to target directory")
 	viper.SetDefault("photos.target", defaultPhotosTarget)
-	viper.BindPFlag("photos.target", photosCmd.PersistentFlags().Lookup("target"))
+	_ = viper.BindPFlag("photos.target", photosCmd.PersistentFlags().Lookup("target"))
 
 	photosCmd.PersistentFlags().Bool("rename", defaultPhotosRename, "Rename the source instead of copying")
 	viper.SetDefault("photos.rename", defaultPhotosRename)
-	viper.BindPFlag("photos.rename", photosCmd.PersistentFlags().Lookup("rename"))
+	_ = viper.BindPFlag("photos.rename", photosCmd.PersistentFlags().Lookup("rename"))
 
 	photosCmd.PersistentFlags().Bool("by-checksum", defaultPhotosByChecksum, "Rename by checksum as fallback")
 	viper.SetDefault("photos.by_checksum", defaultPhotosByChecksum)
-	viper.BindPFlag("photos.by_checksum", photosCmd.PersistentFlags().Lookup("by-checksum"))
+	_ = viper.BindPFlag("photos.by_checksum", photosCmd.PersistentFlags().Lookup("by-checksum"))
 }
 
 func photosAction(_ *cobra.Command, _ []string) {
