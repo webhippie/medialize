@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.1](https://github.com/webhippie/medialize/compare/v2.1.0...v2.1.1) (2025-10-13)
+
+
+### Bugfixes
+
+* **deps:** update alpine:3.22 docker digest to 56b31e2 ([#119](https://github.com/webhippie/medialize/issues/119)) ([e3bac56](https://github.com/webhippie/medialize/commit/e3bac56f40ec5a629b98d14feb6b4ac1bd2090f3))
+* **deps:** update docker digests ([#120](https://github.com/webhippie/medialize/issues/120)) ([93c8d3f](https://github.com/webhippie/medialize/commit/93c8d3ff307200615d91a54230002a11a261f114))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 0134653 ([#123](https://github.com/webhippie/medialize/issues/123)) ([ade4666](https://github.com/webhippie/medialize/commit/ade4666b1a5bd76ba4aa1794d7ecb1b596c776a2))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 0ae17b3 ([#125](https://github.com/webhippie/medialize/issues/125)) ([e4a64cb](https://github.com/webhippie/medialize/commit/e4a64cb2e1f777957b8b91695f13ea5fc7e23336))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 7300a8d ([#122](https://github.com/webhippie/medialize/issues/122)) ([0f86e20](https://github.com/webhippie/medialize/commit/0f86e20a8c123b9e0f66609b2281298a2af9dc55))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to b34e174 ([#118](https://github.com/webhippie/medialize/issues/118)) ([e214b1b](https://github.com/webhippie/medialize/commit/e214b1bee4b710931ea23d3a8a51606e95f1762d))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to e51523f ([#121](https://github.com/webhippie/medialize/issues/121)) ([c0202c7](https://github.com/webhippie/medialize/commit/c0202c7aac28d5a1d946f9ad0b8245a3d15a54b7))
+* **patch:** update golang docker tag to v1.25.2 ([#117](https://github.com/webhippie/medialize/issues/117)) ([c91c532](https://github.com/webhippie/medialize/commit/c91c53255e8cb3910e449e069cfcb1b24d26c24d))
+
 ## [2.1.0](https://github.com/webhippie/medialize/compare/v2.0.0...v2.1.0) (2025-09-22)
 
 
