@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.1](https://github.com/webhippie/medialize/compare/v2.2.0...v2.2.1) (2025-11-10)
+
+
+### Bugfixes
+
+* **deps:** update golang:1.25.4-alpine3.21 docker digest to 3289aac ([#141](https://github.com/webhippie/medialize/issues/141)) ([d47adf4](https://github.com/webhippie/medialize/commit/d47adf49d15794deb27079f0d99bbaeb6548ca2a))
+* **patch:** update golang docker tag to v1.25.4 ([#140](https://github.com/webhippie/medialize/issues/140)) ([3982a8a](https://github.com/webhippie/medialize/commit/3982a8aee3355e5a201b872d18e923f1f522fbe8))
+* **patch:** update module github.com/golangci/golangci-lint/v2 to v2.6.1 ([#137](https://github.com/webhippie/medialize/issues/137)) ([e53f440](https://github.com/webhippie/medialize/commit/e53f4407f37c8929bbb59dc3a231e1efc78e33a3))
+
 ## [2.2.0](https://github.com/webhippie/medialize/compare/v2.1.2...v2.2.0) (2025-11-03)
 
 
