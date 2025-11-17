@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.2](https://github.com/webhippie/medialize/compare/v2.2.1...v2.2.2) (2025-11-17)
+
+
+### Bugfixes
+
+* **patch:** update module github.com/golangci/golangci-lint/v2 to v2.6.2 ([#143](https://github.com/webhippie/medialize/issues/143)) ([57b06e8](https://github.com/webhippie/medialize/commit/57b06e89b5904bfbc1fd8e0802a8f250ea20a914))
+
 ## [2.2.1](https://github.com/webhippie/medialize/compare/v2.2.0...v2.2.1) (2025-11-10)
 
 
