@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.3.0](https://github.com/webhippie/medialize/compare/v2.2.2...v2.3.0) (2025-12-08)
+
+
+### Features
+
+* **minor:** update alpine docker tag to v3.23 ([#156](https://github.com/webhippie/medialize/issues/156)) ([df32975](https://github.com/webhippie/medialize/commit/df3297559a2c7d5492b24b2b3a3c627256de817c))
+* **minor:** update module github.com/golangci/golangci-lint/v2 to v2.7.0 ([#155](https://github.com/webhippie/medialize/issues/155)) ([9a77596](https://github.com/webhippie/medialize/commit/9a77596f46e5b575a34788556f95d152fd71f5e2))
+
+
+### Bugfixes
+
+* **patch:** update golang docker tag to v1.25.5 ([#153](https://github.com/webhippie/medialize/issues/153)) ([56f63a3](https://github.com/webhippie/medialize/commit/56f63a332ab40e91781429f9fcaee356861f6e1e))
+* **patch:** update module github.com/spf13/cobra to v1.10.2 ([#157](https://github.com/webhippie/medialize/issues/157)) ([48f0f72](https://github.com/webhippie/medialize/commit/48f0f72538edc7f962cbf717b3a2524c93ab2776))
+
 ## [2.2.2](https://github.com/webhippie/medialize/compare/v2.2.1...v2.2.2) (2025-11-17)
 
 
