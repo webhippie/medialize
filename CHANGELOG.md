@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.1](https://github.com/webhippie/medialize/compare/v2.3.0...v2.3.1) (2025-12-22)
+
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 865b95f ([#166](https://github.com/webhippie/medialize/issues/166)) ([48fdb0d](https://github.com/webhippie/medialize/commit/48fdb0d1c936b7567d52f4409490ec6d2c0d1ace))
+* **deps:** update alpine:3.23 docker digest to be171b5 ([#165](https://github.com/webhippie/medialize/issues/165)) ([e8750dd](https://github.com/webhippie/medialize/commit/e8750dd65b0c1adae5a7b3c380a4be4cad5b610f))
+
 ## [2.3.0](https://github.com/webhippie/medialize/compare/v2.2.2...v2.3.0) (2025-12-08)
 
 
