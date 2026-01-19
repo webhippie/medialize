@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.4.0](https://github.com/webhippie/medialize/compare/v2.3.1...v2.4.0) (2026-01-19)
+
+### Dependencies
+
+* **minor:** update module gopkg.in/vansante/go-ffprobe.v2 to v2.3.0 ([#175](https://github.com/webhippie/medialize/issues/175)) ([04e465f](https://github.com/webhippie/medialize/commit/04e465f99c893027dd7a0bd883af571a21f46051))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([7940f52](https://github.com/webhippie/medialize/commit/7940f52ef96094243b629173835d43d25bb392a5))
+* **flake:** updated lockfile [skip ci] ([93201af](https://github.com/webhippie/medialize/commit/93201af9faf90110490ffdc8f3348d8fa783c88c))
+* **flake:** updated lockfile [skip ci] ([1f6b50e](https://github.com/webhippie/medialize/commit/1f6b50ec6b773794f8cbb97325e83c55108f0c92))
+* **flake:** updated lockfile [skip ci] ([5047593](https://github.com/webhippie/medialize/commit/50475932472bc5f407bd47c7fb3d4dbeb3c6e2ef))
+
 ## [2.3.1](https://github.com/webhippie/medialize/compare/v2.3.0...v2.3.1) (2025-12-22)
 
 
