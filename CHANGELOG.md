@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.4.1](https://github.com/webhippie/medialize/compare/v2.4.0...v2.4.1) (2026-02-02)
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 2510918 ([#176](https://github.com/webhippie/medialize/issues/176)) ([66b7fba](https://github.com/webhippie/medialize/commit/66b7fba9446fa14b53fe24cb978734baf718a3fb))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([e0838b1](https://github.com/webhippie/medialize/commit/e0838b12aa4d1c144b374db126c748aacae3d7a0))
+* **flake:** updated lockfile [skip ci] ([1c1d73c](https://github.com/webhippie/medialize/commit/1c1d73c61659b2b42ec1eea1b4eeef4d4be24891))
+
 ## [2.4.0](https://github.com/webhippie/medialize/compare/v2.3.1...v2.4.0) (2026-01-19)
 
 ### Dependencies
