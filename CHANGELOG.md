@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.5.0](https://github.com/webhippie/medialize/compare/v2.4.1...v2.5.0) (2026-03-02)
+
+### Features
+
+* upgrade build process to go 1.25 ([52b5451](https://github.com/webhippie/medialize/commit/52b54511721665b7d0c447687c51c07af34a8d2f))
+
+### Bugfixes
+
+* **deps:** pin golang docker tag to ac09a5f ([#180](https://github.com/webhippie/medialize/issues/180)) ([71f3412](https://github.com/webhippie/medialize/commit/71f341278623952c9e464962e0ee2a00d838740f))
+
+### Dependencies
+
+* **minor:** update golang docker tag to v1.26.0 ([#181](https://github.com/webhippie/medialize/issues/181)) ([32c2fef](https://github.com/webhippie/medialize/commit/32c2fef232dcfd4d237e553e70acb86b144a5ec3))
+
+### Miscellaneous
+
+* enable skip-package-name-collision-with-go-std for revive ([dd9818d](https://github.com/webhippie/medialize/commit/dd9818db6ad37cc9ffb14901e331ae2e90eae037))
+* **flake:** updated lockfile [skip ci] ([f3defbe](https://github.com/webhippie/medialize/commit/f3defbecd2b5b678a2d4a458ec794f04d85db9b7))
+* **flake:** updated lockfile [skip ci] ([f08b5a1](https://github.com/webhippie/medialize/commit/f08b5a169ba74a36456edc98c6b13bff90df3f75))
+* **flake:** updated lockfile [skip ci] ([0b77915](https://github.com/webhippie/medialize/commit/0b77915d1d88189327b0b0fde09fb85a0baa7380))
+* **flake:** updated lockfile [skip ci] ([48e8a45](https://github.com/webhippie/medialize/commit/48e8a4557a4786824d8bc6351db052b8a69fa215))
+* replace nixfmt package ([3ee030a](https://github.com/webhippie/medialize/commit/3ee030a3af007458f9c816313c6d7486077714c4))
+
 ## [2.4.1](https://github.com/webhippie/medialize/compare/v2.4.0...v2.4.1) (2026-02-02)
 
 ### Bugfixes
