@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.6.0](https://github.com/webhippie/medialize/compare/v2.5.1...v2.6.0) (2026-03-30)
+
+### Dependencies
+
+* **minor:** update module github.com/rs/zerolog to v1.35.0 ([#194](https://github.com/webhippie/medialize/issues/194)) ([a609a7f](https://github.com/webhippie/medialize/commit/a609a7f5e5076190972907e2d191431eb38e1a41))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([6e6eb13](https://github.com/webhippie/medialize/commit/6e6eb1301977a453b1d48299aeddc3d36bb5d073))
+* **flake:** updated lockfile [skip ci] ([0170ac9](https://github.com/webhippie/medialize/commit/0170ac971a558928acbc69e9d400274ac988da44))
+* **flake:** updated lockfile [skip ci] ([1a5e4cf](https://github.com/webhippie/medialize/commit/1a5e4cfea7a30c3cf0a1bb2228b64ee8dba91603))
+
 ## [2.5.1](https://github.com/webhippie/medialize/compare/v2.5.0...v2.5.1) (2026-03-09)
 
 ### Dependencies
