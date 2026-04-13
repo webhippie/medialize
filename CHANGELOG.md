@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.6.1](https://github.com/webhippie/medialize/compare/v2.6.0...v2.6.1) (2026-04-13)
+
+### Dependencies
+
+* **patch:** update golang docker tag to v1.26.2 ([#195](https://github.com/webhippie/medialize/issues/195)) ([7920f20](https://github.com/webhippie/medialize/commit/7920f2029edf66904ccf0d9c7033c8a1133a4d26))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([681658a](https://github.com/webhippie/medialize/commit/681658a3f4baadd70d8aaece1348e640fd6bd3a2))
+* **flake:** updated lockfile [skip ci] ([1bdee19](https://github.com/webhippie/medialize/commit/1bdee19a715ec774644dfe2d789f741c7ec0f97a))
+
 ## [2.6.0](https://github.com/webhippie/medialize/compare/v2.5.1...v2.6.0) (2026-03-30)
 
 ### Dependencies
