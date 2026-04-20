@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.6.2](https://github.com/webhippie/medialize/compare/v2.6.1...v2.6.2) (2026-04-20)
+
+### Bugfixes
+
+* **deps:** update docker digests ([#197](https://github.com/webhippie/medialize/issues/197)) ([2ee4854](https://github.com/webhippie/medialize/commit/2ee485414d46dba4b5ff7ac28fa91b89905f40e8))
+* **deps:** update golang:1.26.2-alpine docker digest to f853308 ([#198](https://github.com/webhippie/medialize/issues/198)) ([1b23dab](https://github.com/webhippie/medialize/commit/1b23dab2985f8b74cacb2d0d6c6ddd694b67e541))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([887c379](https://github.com/webhippie/medialize/commit/887c37939affbd67effbd984c0a6337ab6807199))
+
 ## [2.6.1](https://github.com/webhippie/medialize/compare/v2.6.0...v2.6.1) (2026-04-13)
 
 ### Dependencies
