@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.7.0](https://github.com/webhippie/medialize/compare/v2.6.4...v2.7.0) (2026-05-25)
+
+### Features
+
+* upgrade required go version to 1.26 ([44a6d15](https://github.com/webhippie/medialize/commit/44a6d1540c65e521f54ac46a5116bce23b0a2909))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([e686ffc](https://github.com/webhippie/medialize/commit/e686ffc75726fc0f486ccce2b71e464b20652caa))
+* **flake:** updated lockfile [skip ci] ([441ecae](https://github.com/webhippie/medialize/commit/441ecae3af0ef9fedc71ec35599e535385263414))
+
 ## [2.6.4](https://github.com/webhippie/medialize/compare/v2.6.3...v2.6.4) (2026-05-11)
 
 ### Dependencies
