@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.8.1](https://github.com/webhippie/medialize/compare/v2.8.0...v2.8.1) (2026-06-22)
+
+### Bugfixes
+
+* **deps:** update docker digests ([#211](https://github.com/webhippie/medialize/issues/211)) ([793ded0](https://github.com/webhippie/medialize/commit/793ded076abc7b18bd465da436df095ab798b767))
+* **deps:** update docker digests ([#212](https://github.com/webhippie/medialize/issues/212)) ([4ac5916](https://github.com/webhippie/medialize/commit/4ac5916abf228e996de0c56a2c8e32946d4c1554))
+* **deps:** update docker digests ([#213](https://github.com/webhippie/medialize/issues/213)) ([e6e0a6d](https://github.com/webhippie/medialize/commit/e6e0a6d1e13c60e015951341fa7c4705483c807b))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([0c98d90](https://github.com/webhippie/medialize/commit/0c98d90950c5694e3bc1947e1eecd03aab049592))
+
 ## [2.8.0](https://github.com/webhippie/medialize/compare/v2.7.1...v2.8.0) (2026-06-15)
 
 ### Bugfixes
