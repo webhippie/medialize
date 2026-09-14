@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.9.0](https://github.com/webhippie/medialize/compare/v2.8.3...v2.9.0) (2026-09-14)
+
+### Features
+
+* restructure repo and build processes ([1471d45](https://github.com/webhippie/medialize/commit/1471d45dc83ced0bafc5a5bd0157c7ab419fa356))
+
+### Bugfixes
+
+* **deps:** update golang:1.27.1-alpine docker digest to cf6fca6 ([#231](https://github.com/webhippie/medialize/issues/231)) ([41cffa3](https://github.com/webhippie/medialize/commit/41cffa371543cd7f12777f10d41b6db0d19eed5c))
+
+### Dependencies
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.26.0 ([#232](https://github.com/webhippie/medialize/issues/232)) ([ef86df9](https://github.com/webhippie/medialize/commit/ef86df9f4d3694345451f931fdf8cb2dcb2a5244))
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.27.0 ([#234](https://github.com/webhippie/medialize/issues/234)) ([7b7f9d6](https://github.com/webhippie/medialize/commit/7b7f9d6222598e9ff6c7d05487c4447effedb8a1))
+* **minor:** update dependency hugo-extended to v0.166.0 ([#235](https://github.com/webhippie/medialize/issues/235)) ([316bbf3](https://github.com/webhippie/medialize/commit/316bbf35e9edd3750777e13c2ae4d3bdfa29849d))
+* **minor:** update dependency task to v3.53.1 ([#233](https://github.com/webhippie/medialize/issues/233)) ([dc1a458](https://github.com/webhippie/medialize/commit/dc1a4586c92471543dbdbc716d0a63e53da6057f))
+* **minor:** update golang docker tag to v1.27.0 ([#227](https://github.com/webhippie/medialize/issues/227)) ([4649230](https://github.com/webhippie/medialize/commit/46492300a010076b7cb31576a1264d551c3c0ac7))
+* **minor:** update module github.com/stretchr/testify to v1.12.0 ([#225](https://github.com/webhippie/medialize/issues/225)) ([af8d559](https://github.com/webhippie/medialize/commit/af8d559aa324e05106efe99ed19063e120b0bc09))
+* **patch:** update dependency prek to v0.5.3 ([#236](https://github.com/webhippie/medialize/issues/236)) ([5562dbd](https://github.com/webhippie/medialize/commit/5562dbd66c8199ebefb404c53f39c8ff700941ee))
+* **patch:** update golang docker tag to v1.27.1 ([#230](https://github.com/webhippie/medialize/issues/230)) ([3689b26](https://github.com/webhippie/medialize/commit/3689b26eabbc9ffc5b280d02a74543a579556bbe))
+* **patch:** update module github.com/stretchr/testify to v1.12.1 ([#226](https://github.com/webhippie/medialize/issues/226)) ([68075c2](https://github.com/webhippie/medialize/commit/68075c23ef5c6ec67bccdfb8ec3b2a95c627a583))
+* **patch:** update module gopkg.in/vansante/go-ffprobe.v2 to v2.3.1 ([#237](https://github.com/webhippie/medialize/issues/237)) ([8c338f7](https://github.com/webhippie/medialize/commit/8c338f74e56334278a8c21327cda34e751d0f9c9))
+
 ## [2.8.3](https://github.com/webhippie/medialize/compare/v2.8.2...v2.8.3) (2026-08-17)
 
 ## [2.8.2](https://github.com/webhippie/medialize/compare/v2.8.1...v2.8.2) (2026-07-13)
