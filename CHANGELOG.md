@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.9.2](https://github.com/webhippie/medialize/compare/v2.9.1...v2.9.2) (2026-09-28)
+
+### Bugfixes
+
+* **deps:** update golang:1.27.1-alpine docker digest to 8a5910f ([#242](https://github.com/webhippie/medialize/issues/242)) ([d910933](https://github.com/webhippie/medialize/commit/d910933a97cf878fd6ed6e311226fb6d04545213))
+
+### Dependencies
+
+* **mise:** update dependency golangci-lint to v2.14.0 ([#243](https://github.com/webhippie/medialize/issues/243)) ([a07f8b0](https://github.com/webhippie/medialize/commit/a07f8b0c40e587ccd535628e7d8feb501dffa09a))
+* **mise:** update dependency hugo-extended to v0.167.0 ([#246](https://github.com/webhippie/medialize/issues/246)) ([b134f06](https://github.com/webhippie/medialize/commit/b134f0605ef39a2d1e54df8d23345cba4905e1f3))
+* **mise:** update dependency prek to v0.5.4 ([#244](https://github.com/webhippie/medialize/issues/244)) ([db81414](https://github.com/webhippie/medialize/commit/db81414bace2c8ef4a1e15835de17aaffbb95a80))
+
 ## [2.9.1](https://github.com/webhippie/medialize/compare/v2.9.0...v2.9.1) (2026-09-21)
 
 ### Bugfixes
