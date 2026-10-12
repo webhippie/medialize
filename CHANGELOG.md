@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.9.3](https://github.com/webhippie/medialize/compare/v2.9.2...v2.9.3) (2026-10-12)
+
+### Dependencies
+
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.28.0 ([#252](https://github.com/webhippie/medialize/issues/252)) ([7648d99](https://github.com/webhippie/medialize/commit/7648d995a3bf9efe9d9c3d52d712d6be9e2050e9))
+* **mise:** update dependency go to v1.27.2 ([#248](https://github.com/webhippie/medialize/issues/248)) ([8c3c30d](https://github.com/webhippie/medialize/commit/8c3c30db5938ff79c0366f1af702f022535701a5))
+* **mise:** update dependency goreleaser to v2.18.3 ([#249](https://github.com/webhippie/medialize/issues/249)) ([08d6fad](https://github.com/webhippie/medialize/commit/08d6fad9095534f44fe4a023ecc7223e80ea27d5))
+* **mise:** update dependency prek to v0.5.5 ([#250](https://github.com/webhippie/medialize/issues/250)) ([091f636](https://github.com/webhippie/medialize/commit/091f636400a3822d0c3aa0cfe00165e35bc72ea9))
+* **mise:** update dependency task to v3.54.0 ([#253](https://github.com/webhippie/medialize/issues/253)) ([74d3f8e](https://github.com/webhippie/medialize/commit/74d3f8e6095055f30661b688bc8289ccd74030fc))
+* **patch:** update golang docker tag to v1.27.2 ([#251](https://github.com/webhippie/medialize/issues/251)) ([d7d1e27](https://github.com/webhippie/medialize/commit/d7d1e2796a771e8a42cf8edfc956fcb6bb75a377))
+
 ## [2.9.2](https://github.com/webhippie/medialize/compare/v2.9.1...v2.9.2) (2026-09-28)
 
 ### Bugfixes
