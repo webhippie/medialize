@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.9.4](https://github.com/webhippie/medialize/compare/v2.9.3...v2.9.4) (2026-10-26)
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to 71e9b7b ([#266](https://github.com/webhippie/medialize/issues/266)) ([3569c08](https://github.com/webhippie/medialize/commit/3569c0866d9cf1a29a031c7ed7f5fd2e3ce3ed43))
+* **deps:** update alpine:3.24 docker digest to be26560 ([#270](https://github.com/webhippie/medialize/issues/270)) ([3c6b009](https://github.com/webhippie/medialize/commit/3c6b009f809bca1a7734099ae9e060c55737b0d1))
+* **deps:** update alpine:3.24 docker digest to c6b073f ([#264](https://github.com/webhippie/medialize/issues/264)) ([2ab5040](https://github.com/webhippie/medialize/commit/2ab50408569183658c1ddca3debced0d1b602857))
+* **deps:** update golang:1.27.3-alpine docker digest to b8c9b82 ([#267](https://github.com/webhippie/medialize/issues/267)) ([68a47da](https://github.com/webhippie/medialize/commit/68a47da2c276a04d3f3e142122173bf986a912ce))
+* **deps:** update golang:1.27.3-alpine docker digest to d530cf6 ([#265](https://github.com/webhippie/medialize/issues/265)) ([a565c48](https://github.com/webhippie/medialize/commit/a565c4859983ed02a97395eea112cafa14f81474))
+
+### Dependencies
+
+* **mise:** update dependency cosign to v3.1.4 ([#262](https://github.com/webhippie/medialize/issues/262)) ([56d6443](https://github.com/webhippie/medialize/commit/56d6443d63ae5601cc2b7e9334073afb6e068a25))
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.29.0 ([#256](https://github.com/webhippie/medialize/issues/256)) ([df84d68](https://github.com/webhippie/medialize/commit/df84d68183531a601282204293029c67745aec8c))
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.30.0 ([#268](https://github.com/webhippie/medialize/issues/268)) ([46705fd](https://github.com/webhippie/medialize/commit/46705fdb21ebae9a9579575a44ccd2a20f34678c))
+* **mise:** update dependency go to v1.27.3 ([#260](https://github.com/webhippie/medialize/issues/260)) ([ec0cbcc](https://github.com/webhippie/medialize/commit/ec0cbcc1b2d3d9d9ab6f525c8f54ac6691e0ba56))
+* **mise:** update dependency golangci-lint to v2.15.0 ([#257](https://github.com/webhippie/medialize/issues/257)) ([f97b41a](https://github.com/webhippie/medialize/commit/f97b41a5b8344e908d90f664df13649bcbac5802))
+* **mise:** update dependency goreleaser to v2.19.0 ([#269](https://github.com/webhippie/medialize/issues/269)) ([0fe4a2e](https://github.com/webhippie/medialize/commit/0fe4a2ea45b4803220e928f39255a11a6642ed89))
+* **mise:** update dependency hugo-extended to v0.168.0 ([#255](https://github.com/webhippie/medialize/issues/255)) ([122203f](https://github.com/webhippie/medialize/commit/122203f9c5f414ce8673869d1f585558698200d2))
+* **mise:** update dependency prek to v0.5.6 ([#258](https://github.com/webhippie/medialize/issues/258)) ([5fb8a27](https://github.com/webhippie/medialize/commit/5fb8a27aaeff019f82ade29fd5c2df0425c8abd6))
+* **mise:** update dependency prek to v0.5.7 ([#263](https://github.com/webhippie/medialize/issues/263)) ([ed94a43](https://github.com/webhippie/medialize/commit/ed94a43127fd9afde2d64980978e29ce147eaec8))
+* **patch:** update golang docker tag to v1.27.3 ([#261](https://github.com/webhippie/medialize/issues/261)) ([34beb44](https://github.com/webhippie/medialize/commit/34beb44f32ff3632286cae0c0d809097ebe1e20e))
+
 ## [2.9.3](https://github.com/webhippie/medialize/compare/v2.9.2...v2.9.3) (2026-10-12)
 
 ### Dependencies
