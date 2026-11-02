@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.9.5](https://github.com/webhippie/medialize/compare/v2.9.4...v2.9.5) (2026-11-02)
+
+### Bugfixes
+
+* **deps:** update golang:1.27.3-alpine docker digest to d200d2d ([#271](https://github.com/webhippie/medialize/issues/271)) ([90f5238](https://github.com/webhippie/medialize/commit/90f5238116e8e58aa2713b905d9788ff9daf0608))
+
+### Dependencies
+
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.30.1 ([#274](https://github.com/webhippie/medialize/issues/274)) ([007478d](https://github.com/webhippie/medialize/commit/007478dd42580d8ad9d444070e902f9c72887db1))
+* **mise:** update dependency hugo-extended to v0.169.0 ([#272](https://github.com/webhippie/medialize/issues/272)) ([52ae262](https://github.com/webhippie/medialize/commit/52ae26241def21ecd85df8b24121d2bfe2e599e5))
+* **mise:** update dependency prek to v0.5.9 ([#276](https://github.com/webhippie/medialize/issues/276)) ([c8017f3](https://github.com/webhippie/medialize/commit/c8017f32416b156d6aefc0c3fbe645b5c11a93e7))
+* **mise:** update node.js to v26 ([#275](https://github.com/webhippie/medialize/issues/275)) ([90cc599](https://github.com/webhippie/medialize/commit/90cc599b0d3508df87b4ed6bd1e5d5139d305003))
+
 ## [2.9.4](https://github.com/webhippie/medialize/compare/v2.9.3...v2.9.4) (2026-10-26)
 
 ### Bugfixes
