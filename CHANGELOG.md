@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.9.6](https://github.com/webhippie/medialize/compare/v2.9.5...v2.9.6) (2026-11-09)
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to f59abe6 ([#280](https://github.com/webhippie/medialize/issues/280)) ([0aa79c5](https://github.com/webhippie/medialize/commit/0aa79c508b00b266f1c2c29c0af933f12d2331d5))
+* **deps:** update docker digests ([#279](https://github.com/webhippie/medialize/issues/279)) ([e5a9607](https://github.com/webhippie/medialize/commit/e5a960705ad2a5965ca8d1af43af5820bdb87c1d))
+
+### Dependencies
+
+* **mise:** update dependency goreleaser to v2.20.0 ([#278](https://github.com/webhippie/medialize/issues/278)) ([c991dc8](https://github.com/webhippie/medialize/commit/c991dc826f2f907e64edbf137b79163a05878d47))
+* **mise:** update dependency prek to v0.5.10 ([#277](https://github.com/webhippie/medialize/issues/277)) ([3b2deab](https://github.com/webhippie/medialize/commit/3b2deabf968386eeb9c8780d5e4873df14722f30))
+
 ## [2.9.5](https://github.com/webhippie/medialize/compare/v2.9.4...v2.9.5) (2026-11-02)
 
 ### Bugfixes
