@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.9.7](https://github.com/webhippie/medialize/compare/v2.9.6...v2.9.7) (2026-11-16)
+
+* automated release update [skip ci] ([29894cd](https://github.com/webhippie/medialize/commit/29894cd64abc45018e532feed71b232e983fe676))
+
+### Dependencies
+
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.31.0 ([#284](https://github.com/webhippie/medialize/issues/284)) ([8632acf](https://github.com/webhippie/medialize/commit/8632acfa8e800443bcb79618260c68c7eea9597d))
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.31.1 ([#285](https://github.com/webhippie/medialize/issues/285)) ([ebb925f](https://github.com/webhippie/medialize/commit/ebb925f4de481527a7c541575297d1e3cba1c0d7))
+* **mise:** update dependency go to v1.27.4 ([#281](https://github.com/webhippie/medialize/issues/281)) ([3b40fb2](https://github.com/webhippie/medialize/commit/3b40fb2861cf1800c924aaf0214ce84b178c1272))
+* **mise:** update dependency goreleaser to v2.20.1 ([#283](https://github.com/webhippie/medialize/issues/283)) ([04fa37a](https://github.com/webhippie/medialize/commit/04fa37aef81fc08ec6955fa14243147a259ed01b))
+* **mise:** update dependency goreleaser to v2.20.2 ([#286](https://github.com/webhippie/medialize/issues/286)) ([1a4bef4](https://github.com/webhippie/medialize/commit/1a4bef466f8238675dbb022ad34661cbaac211a1))
+* **mise:** update dependency hugo-extended to v0.170.0 ([#287](https://github.com/webhippie/medialize/issues/287)) ([bd4deab](https://github.com/webhippie/medialize/commit/bd4deabfd1e58822435025ad52c0b3a8cde53151))
+* **patch:** update golang docker tag to v1.27.4 ([#282](https://github.com/webhippie/medialize/issues/282)) ([5a3df3a](https://github.com/webhippie/medialize/commit/5a3df3a1c64e89344bb73ab4bf7c416aaa4848ba))
+
 ## [2.9.6](https://github.com/webhippie/medialize/compare/v2.9.5...v2.9.6) (2026-11-09)
 
 ### Bugfixes
