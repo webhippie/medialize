@@ -1,0 +1,41 @@
+---
+# yaml-language-server: $schema=https://www.schemastore.org/hugo.json
+baseURL: https://webhippie.github.io/medialize/
+locale: en-us
+title: Medialize
+pygmentsUseClasses: true
+enableRobotsTXT: true
+
+disableKinds:
+  - rss
+  - sitemap
+  - taxonomy
+  - term
+  - section
+
+cascade:
+  - build:
+      render: never
+      list: always
+    target:
+      kind: page
+
+blackfriday:
+  angledQuotes: true
+  fractions: false
+  plainIDAnchors: true
+  smartlists: true
+  extensions:
+    - hardLineBreak
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  author: Thomas Boerger
+  description: Sort and filter your photos
+  keywords: photo, image, video, sorting
+
+...
