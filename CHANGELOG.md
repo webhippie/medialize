@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.10.0](https://github.com/webhippie/medialize/compare/v2.9.7...v2.10.0) (2026-11-23)
+
+* automated release update [skip ci] ([9288d6a](https://github.com/webhippie/medialize/commit/9288d6ac7bc78c33ccb979d0f2a9b3f33a0fe28b))
+
+### Features
+
+* switch to plain hugo and resolve deprecations ([8820f50](https://github.com/webhippie/medialize/commit/8820f50109dfd97a7907f6785825eb1fef530b42))
+
+### Bugfixes
+
+* **deps:** update golang:1.27.4-alpine docker digest to 70bd7dd ([#288](https://github.com/webhippie/medialize/issues/288)) ([0ed5a94](https://github.com/webhippie/medialize/commit/0ed5a94a4e82eae22a3923f1362ea9b5e95177cc))
+
+### Dependencies
+
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.31.3 ([#290](https://github.com/webhippie/medialize/issues/290)) ([81d6a98](https://github.com/webhippie/medialize/commit/81d6a98165a0a1cfb42ca6098a3017dac0ed3cf9))
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.31.4 ([#293](https://github.com/webhippie/medialize/issues/293)) ([eec86c2](https://github.com/webhippie/medialize/commit/eec86c2aad02e5b09d1d36e3c5b53e56453082f4))
+* **mise:** update dependency goreleaser to v2.20.3 ([#292](https://github.com/webhippie/medialize/issues/292)) ([dea3a61](https://github.com/webhippie/medialize/commit/dea3a613f14baef3bd51baf999680d203f1bf7f2))
+* **mise:** update dependency hugo-extended to v0.170.1 ([#291](https://github.com/webhippie/medialize/issues/291)) ([c3e520b](https://github.com/webhippie/medialize/commit/c3e520bfa1c224b61678688de6904bb707fae7e8))
+* **mise:** update dependency prek to v0.5.11 ([#289](https://github.com/webhippie/medialize/issues/289)) ([fd0f252](https://github.com/webhippie/medialize/commit/fd0f2528c2fe546ea3b119722972c164c476278c))
+
 ## [2.9.7](https://github.com/webhippie/medialize/compare/v2.9.6...v2.9.7) (2026-11-16)
 
 * automated release update [skip ci] ([29894cd](https://github.com/webhippie/medialize/commit/29894cd64abc45018e532feed71b232e983fe676))
